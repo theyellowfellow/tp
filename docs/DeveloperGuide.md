@@ -388,7 +388,7 @@ The following table shows the commands related to managing a patient's details.<
 * When the list of appointments increase in size, Option 1 performs better because Baymax involves a lot of "update/set"
 operations such as marking an appointment as done/missed and adding/editing an appointment.
 
-### **4.3 Appointment Management Features**
+### **4.3 Appointment Manager**
 (Contributed by Shi Hui Ling & Reuben Teng)
 
 Scheduling, viewing, and otherwise dealing with appointments is a key feature area for Baymax. 
