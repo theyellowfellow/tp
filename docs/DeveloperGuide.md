@@ -14,7 +14,7 @@ title: Baymax - Developer Guide
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.6. [Storage Component](#36-common-classes)<br>
 4. [**Implementation**](#4-implementation)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1 [List Managers](#41-list-managers)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-managemer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-manager)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Appointment Manager](#43-appointment-manager)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Calendar Feature](#44-calendar-feature)<br>
 5. [**Documentation**](#5-documentation)<br>
