@@ -405,13 +405,9 @@ These methods are used by the `AppointmentCommand` classes to execute their logi
 
 The *Object Diagram* below summarises the interactions between AppointmentManager and Appointments.
 
-<<<<<<< HEAD
-=======
 ![AppointmentManagerObjectDiagram](images/AppointmentObjectDiagram.png)<br>
 Figure 14. Object diagram of `AppointmentManager`
 
-
->>>>>>> 4d0459d0e9ea38a498a6365d99940f62edcbad91
 #### 4.3.1 Rationale
 
 The `AppointmentManager` class contains a summary of all the "back-end" logic of appointment commands on the app's 
