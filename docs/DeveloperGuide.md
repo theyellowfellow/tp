@@ -14,8 +14,13 @@ title: Baymax - Developer Guide
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.6. [Storage Component](#36-common-classes)<br>
 4. [**Implementation**](#4-implementation)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1 [List Managers](#41-list-managers)<br>
+<<<<<<< HEAD
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-managemer)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Appointment Manager](#43-appointment-managemer)<br>
+=======
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-manager)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Appointment Manager](#43-appointment-manager)<br>
+>>>>>>> 4115388e62d4cd818a40e36ab9fa730f65982cae
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Calendar Feature](#44-calendar-feature)<br>
 5. [**Documentation**](#5-documentation)<br>
 6. [**Testing**](#6-testing)<br>
@@ -463,10 +468,17 @@ Such appointments are marked `DONE` automatically as it is assumed that it is un
 
 **Aspect 3: `listapptsof` Command**
 
+Maintaining appointment lists:
 |                                                                                                                                                                                                                       | Pros                                                                                                     | Cons                                                                                                |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Option 1: (Current choice): Filtering global appointment list by matching `Patient` of the appointment with `Patient` specified | Simpler implementation of other commands: `add`, `edit`, `delete` only need to change one list. Also, the `listapptsof` Command will make use of `AppointmentManager`'s `findByPredicate` method, which is the same method used by other `find` commands and hence making the codebase more uniform. | Slower in returning the list of appointments belonging to the patient. |
-| Option 2 Storing an appointment list inside of each `Patient` (in addition to the global list) | Faster and more intuitive way of returning the list of appointments belonging to a patient. | Creates additional work for other appointment commands, which complicates implementation. |
+| Option 2: Storing an appointment list inside of each `Patient` (in addition to the global list) | Faster and more intuitive way of returning the list of appointments belonging to a patient. | Creates additional work for other appointment commands, which complicates implementation. |
+
+Searching of patient by name:
+|                                                                                                                                                                                                                       | Pros                                                                                                     | Cons                                                                                                |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Option 1: (Current choice): Matching of full name | Much less likely to only have one Patient of that name. As we only want to display the appointments of one Patient, this is important. | Longer for user to type. |
+| Option 2: Matching via keyword (i.e. name only has to *contain* the search string) | More user-friendly. | Much more likely to end up with appointments of multiple patients. For example, matching of keywords like "Alex Yeoh" will return appointments belonging to all Patients with "Alex" as well as with "Yeoh" in their names. |
 
 **Aspect 4: `cancel` Command** 
  
@@ -877,6 +889,8 @@ Similar to `Use case 5: List all patients` except for appointments instead of pa
   
 #### *Generics*
 * Generic classes, interfaces and methods are used to allow programmers to perform similar operations on multiple data types.
+
+<br>
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix F: Instructions for manual testing**
@@ -965,19 +979,22 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `cancel`, `cancel x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-### Saving data
+### F.5. Saving data
 
-1. Saving patient data
+#### F.5.1. Saving Patient Data
+1. Ensuring that patient data is saved when application is closed and re-opened
     1. Prerequisites: Perform one of the tests for adding, deleting or editing patient data above.
     1. Close the application. Open the application again.
        Expected: Patients listed in the application should be updated to reflect the latest change made.
 
-2. Saving appointment data
+#### F.5.2. Saving Appointment Data
+1. Ensuring that appointment data is saved when application is closed and re-opened
     1. Prerequisites: Perform one of the tests for adding, deleting or editing appointment data above.
     1. Close the application. Open the application again.
        Expected: Appointments listed in the application should be updated to reflect the latest change made.
-       
-2. Dealing with missing/corrupted data files 
+
+#### F.5.3. Dealing with missing/corrupted data
+1.  Ensure that the application is able to function normally even with missing or corrupted data files
    1. Test case: Delete `patients.json` and `appointments.json` files in the Baymax application in `/data` folder. Start up the application as usual.
       Expected: Baymax application is populated with sample data.
    1. Test case: Open `patients.json` or `appointments.json` and corrupt the file by adding gibberish text or deleting part of the file to destroy the json formatting.
