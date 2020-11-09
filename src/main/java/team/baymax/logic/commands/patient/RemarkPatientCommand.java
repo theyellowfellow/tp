@@ -32,7 +32,7 @@ public class RemarkPatientCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "r/[REMARK]\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + "r/Likes to swim.";
+            + "r/Requires special care.";
 
     public static final TabId TAB_ID = TabId.PATIENT;
 

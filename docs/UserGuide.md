@@ -379,7 +379,7 @@ In the case where the field to be edited is absent (E.g `editpatient 3` is enter
 1. When the patient's information is edited successfully, the main display only shows the recently edited patient so that you do not need to scroll through the patient list to ensure that the patient's details are edited. 
 If you wish to view the whole patient list again, you can use the `listpatients` command from [section 5.1.2](#512-list-all-patients-listpatients).
 
-2. You can clear all the tags of the patient by entering ` editpatient INDEX tag/ `
+2. You can clear all the tags of the patient by entering `editpatient INDEX tag/`
 
 #### 5.1.5. Find patient by name: `findpatient`
 You can use this command to find a patient by entering a part of his name (or his full name). 
@@ -526,8 +526,8 @@ get the patient’s `INDEX`, and then execute this command with the index found 
 Parameter Name | Description
 ---------------|------------
 INDEX     | The index of the patient in the most recently displayed list. It must be a <ins>positive</ins> integer.
-NRIC           | The nric of the patient.
-NAME           | The name by which to search for the patient. It must be the patient's full name. E.g. Alex Yeoh
+NRIC           | The NRIC of the patient.
+NAME           | The name by which to search for the patient. It must be the exact full name of the patient.
 
 **Example:**<br>
 1. Type `listapptsof 1` into the command box.
@@ -654,7 +654,7 @@ You can use this command to mark an appointment within the system as done either
 Parameter Name | Description
 ---------------|------------
 INDEX          | The index of the target appointment in the most recently displayed list. It must be a <ins>positive integer</ins>.
-NAME           | The name by which to search for the patient. It can be an incomplete part of the patient's name. E.g. Alice
+NAME           | The name by which to search for the patient. It must be the exact full name of the patient.
 DATETIME       | The date followed by the time of the appointment. It must be in <ins>DD-MM-YYYY HH:MM</ins> format. E.g. 20-01-2020 15:00
 
 **Example:**<br>
@@ -672,7 +672,7 @@ If the command is valid (i.e. the specified appointment exists):
 2. The appointment specified will be marked as done.
     
     ![markapptdone](images/beforedone.png)<br>
-    Figure 5.2.6a. Before marking an appointment as done*
+    *Figure 5.2.6a. Before marking an appointment as done*
     
     ![markapptdone](images/afterdone.png)<br>
     *Figure 5.2.6b. Marking an appointment as done*
@@ -695,7 +695,7 @@ and the `DATETIME` of the appointment.
 Parameter Name | Description
 ---------------|------------
 INDEX          | The index of the target appointment in the most recently displayed list. It must be a <ins>positive</ins> integer.
-NAME           | The name by which to search for the patient. It can be an incomplete part of the patient's name. E.g. Alice
+NAME           | The name by which to search for the patient. It must be the exact full name of the patient.
 DATETIME       | The date followed by the time of the appointment. It must be in <ins>DD-MM-YYYY HH:MM</ins> format. E.g. 20-01-2020 15:00
 
 **Example:**<br>

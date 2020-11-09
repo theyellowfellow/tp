@@ -26,6 +26,7 @@ title: Baymax - Developer Guide
 [**Appendix D: Non-functional Requirements**](#appendix-d-non-functional-requirements)<br>
 [**Appendix E: Glossary**](#appendix-e-glossary)<br>
 [**Appendix F: Instructions for Manual Testing**](#appendix-f-instructions-for-manual-testing)<br>
+
 --------------------------------------------------------------------------------------------------------------------
 ## **1. Introduction**
 
@@ -113,6 +114,7 @@ Each of these classes (except InfoPage) displays data from the `Model` to the us
 For example, The PatientInfoPage and AppointmentInfoPage display lists of patients and appointments respectively. Hence they contain `XYZListPanel` (shown in the diagram below), which in turn contains a collection of `XYZCard` that displays each data field in the Patient and Appointment class.
 
 ![Structure of an XYZPage](images/UiXYZPageClassDiagram.png)<br>
+Figure 5. Structure of Generic `XYZPage` Class Diagram
 
 #### 3.2.2. Responsibilities
 
@@ -129,7 +131,7 @@ This segment will explain the structure and responsibilities of the Logic compon
 #### 3.3.1 Structure
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)<br>
-<br>Figure 5. Structure of the Logic Component
+Figure 6. Structure of the Logic Component
 
 **API** :
 [`Logic.java`](https://github.com/AY2021S1-CS2103T-W12-3/tp/tree/master/src/main/java/team/baymax/logic/Logic.java)
@@ -151,7 +153,7 @@ reflects changes to `Ui` to display.
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("cancel 1")` API call to illustrate.
 
 ![Interactions Inside the Logic Component for the `deleteappt 1` Command](images/DeleteAppointmentSequenceDiagram.png)<br>
-<br>Figure 6. Delete Appointment Sequence Diagram
+Figure 7. Delete Appointment Sequence Diagram
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteAppointmentCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
@@ -162,8 +164,8 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 This segment will explain the structure and responsibilities of the Model component.
 
 #### 3.4.1. Structure
-![Structure of the Model Component](images/ModelClassDiagram.png)
-<br>Figure 7. Structure of the Model Component
+![Structure of the Model Component](images/ModelClassDiagram.png)<br>
+Figure 8. Structure of the Model Component
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-W12-3/tp/tree/master/src/main/java/team/baymax/model/Model.java)
 
@@ -195,8 +197,8 @@ The `Model` component,
 This segment will explain the structure and responsibilities of the Storage component.
 
 #### 3.5.1. Structure
-![Structure of the Storage Component](images/StorageClassDiagram.png)
-<br>Figure 8. Structure of the Storage Component
+![Structure of the Storage Component](images/StorageClassDiagram.png)<br>
+Figure 9. Structure of the Storage Component
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-W12-3/tp/tree/master/src/main/java/team/baymax/storage/Storage.java)
 
@@ -212,9 +214,7 @@ the implementation of a `JsonPatientManagerStorage`, and a similar architecture 
 appointments in json format.
 
 ![Structure of `JsonPatientManagerStorage`](images/PatientManagerStorageClassDiagram.png)
-<br>Figure 9. Structure of `JsonPatientManagerStorage`
-
-
+<br>Figure 10. Structure of `JsonPatientManagerStorage`
 
 #### 3.5.2. Responsibilities
 
@@ -262,7 +262,7 @@ An example of a the `ListManager` implementation is shown below using the `Patie
 `UniqueList` of `Appointment`s.
 
 ![Structure of PatientManager](images/PatientManagerClassDiagram.png)<br>
-<br>Figure 10. Structure of PatientManager
+<br>Figure 11. Structure of PatientManager
 
 **API** : [`PatientManager.java`](https://github.com/AY2021S1-CS2103T-W12-3/tp/blob/master/src/main/java/team/baymax/model/modelmanagers/PatientManager.java)
 
@@ -326,7 +326,7 @@ The parameters of the `findpatient` command are keywords in the patient's name t
 E.g. `findpatient alex` will search and list all patients whose name has the word `alex`. 
 
 ![FindPatientActivityDiagram](images/FindPatientActivityDiagram.png)<br>
-<br>Figure 11. Workflow of a `findpatient` command
+Figure 12. Workflow of a `findpatient` command
 
 When the user enters the `findpatient` command to search for a patient, the user input command undergoes the same command parsing as described in [Section 3.3, “Logic component”](#33-logic-component).
 During the parsing, a predicate is created. This predicate checks if a given Patient contains the user input keywords. The `FindPatientCommand` will then receive this predicate when it is created.
@@ -342,7 +342,7 @@ The following steps will describe the execution of the `FindPatientCommand` in d
 The *Sequence Diagram* below summarises the aforementioned steps.
 
 ![FindPatientSequenceDiagram](images/FindPatientSequenceDiagram.png)<br>
-<br>Figure 12. Execution of the `FindPatientCommand`
+Figure 13. Execution of the `FindPatientCommand`
 
 **Note**:
 
@@ -405,6 +405,13 @@ These methods are used by the `AppointmentCommand` classes to execute their logi
 
 The *Object Diagram* below summarises the interactions between AppointmentManager and Appointments.
 
+<<<<<<< HEAD
+=======
+![AppointmentManagerObjectDiagram](images/AppointmentObjectDiagram.png)<br>
+Figure 14. Object diagram of `AppointmentManager`
+
+
+>>>>>>> 4d0459d0e9ea38a498a6365d99940f62edcbad91
 #### 4.3.1 Rationale
 
 The `AppointmentManager` class contains a summary of all the "back-end" logic of appointment commands on the app's 
@@ -498,21 +505,21 @@ and more user-friendly.
 Below is an example of the sequence diagram when the user executes an AddAppointment command without specifying a date.
 The diagram illustrates how the CalendarManager is used to automatically set the date of the appointment.
 
-![AddAppointmentSequenceDiagram](images/AddAppointmentSequenceDiagram.png)<br>
-<br>Figure 14. Execution of an AddAppointment command with the help of CalendarManager
+![AddAppointmentSequenceDiagram](images/AddAppointmentSequenceDiagram.png)
+<br>Figure 15. Execution of an AddAppointment command with the help of CalendarManager
 
 #### 4.4.2. Current Implementation
 The `CalendarManager` class in the `Model` component contains an `AppointmentCalendar` object, storing the currently set 
-year, month and day. Note that the year, month and day attributes may not necessarily be storing the 
+year, month and day. Note that the `Year`, `Month` and `Day` attributes may not necessarily be storing the 
 present year, month and day. When a user sets the year, month and day, the `Logic` Component parses the user input and
-constructs a YearCommand, MonthCommand and DayCommand respectively. Upon execution, the `ModelManager` calls upon the
-`CalendarManager` to update the year, month and day within the `AppointmentCalendar`.
+constructs a `YearCommand`, `MonthCommand` and `DayCommand` respectively. Upon execution, the `ModelManager` calls upon the
+`CalendarManager` to update the `Year`, `Month` and `Day` within the `AppointmentCalendar`.
 
 The following sequence diagram illustrates how the `Logic` component interacts with the `ModelManager` to influence the
-`year` value in the `AppointmentCalendar` managed by the `CalendarManager`.
+`Year` in the `AppointmentCalendar` managed by the `CalendarManager`.
 
 ![CalendarSequenceDiagram](images/CalendarSequenceDiagram.png)<br>
-<br>Figure 15. Sequence Diagram for Switching to a Particular Year in the Calendar
+Figure 16. Sequence Diagram for Switching to a Particular Year in the Calendar
 
 **Note:**
 
@@ -521,7 +528,7 @@ The following sequence diagram illustrates how the `Logic` component interacts w
 
 #### 4.4.3. Design Consideration
 
-**Aspect:** The necessity of an AppointmentCalendar class in the model
+**Aspect:** The necessity of an `AppointmentCalendar` class in the model
 
 |                                                                                                     | Pros                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Cons                                                                                                                                                                                                                                       |
 |-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -611,7 +618,7 @@ For all use cases below, unless specified otherwise,
 
 #### Patient Profile Management
 
-> **Use case 1: Add a patient**
+**Use case 1: Add a patient**
 
 **MSS**
 
@@ -628,7 +635,7 @@ For all use cases below, unless specified otherwise,
     * 1a1. Baymax displays an invalid command message that details all the fields needed for the command
     Use case ends.
 
-> **Use case 2: Edit a patient’s information**
+**Use case 2: Edit a patient’s information**
 
 **MSS**
 
@@ -649,7 +656,7 @@ For all use cases below, unless specified otherwise,
     * 1b1. Baymax displays an "at least one field must be specified" invalid input message
     Use case ends.
 
-> **Use case 3: Delete a patient**
+**Use case 3: Delete a patient**
 
 **MSS**
 
@@ -666,7 +673,7 @@ For all use cases below, unless specified otherwise,
 	* 1a1. Baymax displays an invalid input message
     Use case ends.
     
-> **Use case 4: Find patient(s) by name**
+**Use case 4: Find patient(s) by name**
 
 **MSS**
 
@@ -677,7 +684,7 @@ and a list of all these patients with their details
 
     Use case ends.
     
-> **Use case 5: List all patients**
+**Use case 5: List all patients**
 
 **MSS**
 
@@ -688,7 +695,7 @@ and a list of all these patients with their details
 
 #### Appointment Management
 
-> **Use case 6: Add an appointment**
+**Use case 6: Add an appointment**
 
 **MSS**
 
@@ -706,10 +713,10 @@ and a list of all these patients with their details
     Use case ends.
 
 * 1b. Missing information for a field, e.g. Duration, Description
-    * 1a1. Baymax displays an invalid command message that details the fields needed for the command
+    * 1b1. Baymax displays an invalid command message that details the fields needed for the command
     Use case ends.
 
-> **Use case 7: List all appointments of a patient**
+**Use case 7: List all appointments of a patient**
 
 **MSS**
 
@@ -720,12 +727,13 @@ and a list of all these patients with their details
 
 **Extensions**
 
-*1a. Patient specified does not exist
+* 1a. Patient specified does not exist
     * 1a1. Baymax displays an invalid input message specific to how the patient was specified 
     (by Name, Nric, or Index in the list)
+    
     Use case ends.
 
-> **Use case 8: Mark an appointment as missed**
+**Use case 8: Mark an appointment as missed**
 
 **MSS**
 
@@ -738,36 +746,37 @@ show only the appointment that has just been marked as missed
     
 **Extensions**
 
-*1a. Appointment specified does not exist
-    *1a1. Baymax displays an invalid input message
+* 1a. Appointment specified does not exist
+    * 1a1. Baymax displays an invalid input message
+    
     Use case ends.
 
-> **Use case 9: Mark an appointment as done**
+**Use case 9: Mark an appointment as done**
 
 Similar to `Use case 8: Mark an appointment as missed` except there is a **precondition**.
 
 **Precondition:** Appointment has already past (i.e. the date and time is past current date and time). 
 
-> **Use case 10: Edit an appointment**
+**Use case 10: Edit an appointment**
 
 Similar to `Use case 2: Edit a patient's information` except for an appointment instead of a patient
 
-> **Use case 11: Cancel an appointment**
+**Use case 11: Cancel an appointment**
 
 Similar to `Use case 3: Delete a patient` except for an appointment instead of a patient
 
-> **Use case 12: Find appointment(s) by keyword**
+**Use case 12: Find appointment(s) by keyword**
 
 Similar to `Use case 4: Find patient(s) by name` except Baymax finds all appointments that contain 
 the search string in their remark or tags. 
 
-> **Use case 13: List all appointments**
+**Use case 13: List all appointments**
 
 Similar to `Use case 5: List all patients` except for appointments instead of patients.
 
 #### Calendar
 
-> **Use case 14: View appointment schedule on a particular day**
+**Use case 14: View appointment schedule on a particular day**
 
 **MSS**
 
@@ -782,14 +791,17 @@ Similar to `Use case 5: List all patients` except for appointments instead of pa
     
 **Extensions**
 
-*1a. Year specified is beyond the limits allowed by Baymax
-    *1a1. Baymax displays an invalid input message specifying the allowed input
+* 1a. Year specified is beyond the limits allowed by Baymax
+    * 1a1. Baymax displays an invalid input message specifying the allowed input
+    
     Use case ends.
-*3a. Month specified is not a valid month (e.g. 13)
-    *1a1. Baymax displays an invalid input message specifying the allowed input
+* 3a. Month specified is not a valid month (e.g. 13)
+    * 3a1. Baymax displays an invalid input message specifying the allowed input
+    
     Use case ends.
-*5a. Day specified is not a valid day in the month (e.g. 30 when in February)
-    *1a1. Baymax displays an invalid input message specifying the allowed input
+* 5a. Day specified is not a valid day in the month (e.g. 30 when in February)
+    * 5a1. Baymax displays an invalid input message specifying the allowed input
+    
     Use case ends.
 
 

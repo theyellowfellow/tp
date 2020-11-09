@@ -10,7 +10,7 @@ participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
-participant ":Model" as Model MODEL_COLOR
+participant "m:Model" as Model MODEL_COLOR
 end box
 
 [-> LogicManager : execute("cancel 1")
@@ -45,10 +45,16 @@ destroy DeleteAppointmentCommandParser
 AppointmentBookParser --> LogicManager : d
 deactivate AppointmentBookParser
 
-LogicManager -> DeleteAppointmentCommand : execute()
+LogicManager -> DeleteAppointmentCommand : execute(m)
 activate DeleteAppointmentCommand
 
-DeleteAppointmentCommand -> Model : deleteAppointment(1)
+DeleteAppointmentCommand -> Model : getFilteredAppointmentList().get(1)
+activate Model
+
+Model --> DeleteAppointmentCommand : toDelete
+deactivate Model
+
+DeleteAppointmentCommand -> Model : deleteAppointment(toDelete)
 activate Model
 
 Model --> DeleteAppointmentCommand
@@ -63,6 +69,9 @@ deactivate CommandResult
 
 
 DeleteAppointmentCommand --> LogicManager : ""r""
+deactivate
+
+DeleteAppointmentCommand -[hidden]-> LogicManager
 destroy DeleteAppointmentCommand
 
 [<--LogicManager : ""r""

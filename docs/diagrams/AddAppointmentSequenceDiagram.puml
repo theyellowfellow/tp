@@ -45,12 +45,15 @@ AddAppointmentCommand --> AddAppointmentCommandParser : c
 deactivate AddAppointmentCommand
 
 AddAppointmentCommandParser --> AppointmentBookParser : c
+deactivate AddAppointmentCommandParser
+
+AddAppointmentCommandParser -[hidden]-> AppointmentBookParser
 destroy AddAppointmentCommandParser
 
 AppointmentBookParser --> LogicManager : c
 deactivate AppointmentBookParser
 
-LogicManager -> AddAppointmentCommand : execute()
+LogicManager -> AddAppointmentCommand : execute(m)
 activate AddAppointmentCommand
 
 AddAppointmentCommand -> ModelManager : getAppointmentCalendar()
@@ -95,6 +98,9 @@ CommandResult --> AddAppointmentCommand : r
 deactivate CommandResult
 
 AddAppointmentCommand --> LogicManager : r
+deactivate AddAppointmentCommand
+
+AddAppointmentCommand -[hidden]-> LogicManager
 destroy AddAppointmentCommand
 
 [<--LogicManager : ""r""
