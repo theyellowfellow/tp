@@ -36,5 +36,4 @@ public class ListAppointmentCommand extends Command {
         return other == this // short circuit if same object
                 || (other instanceof ListAppointmentCommand);
     }
-
 }

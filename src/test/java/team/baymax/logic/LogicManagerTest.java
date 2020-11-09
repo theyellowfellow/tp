@@ -23,6 +23,7 @@ import team.baymax.model.appointment.Appointment;
 import team.baymax.model.modelmanagers.ReadOnlyListManager;
 import team.baymax.model.patient.Patient;
 import team.baymax.model.userprefs.UserPrefs;
+import team.baymax.storage.Storage;
 import team.baymax.storage.StorageManager;
 import team.baymax.storage.appointment.JsonAppointmentManagerStorage;
 import team.baymax.storage.patient.JsonPatientManagerStorage;
@@ -38,6 +39,7 @@ public class LogicManagerTest {
 
     private Model model = new ModelManager();
     private Logic logic;
+    private Storage storage;
 
     @BeforeEach
     public void setUp() {
@@ -47,7 +49,15 @@ public class LogicManagerTest {
                 new JsonAppointmentManagerStorage(temporaryFolder.resolve("appointments.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
         StorageManager storage = new StorageManager(patientManagerStorage, appointmentManagerStorage, userPrefsStorage);
+        this.storage = storage;
         logic = new LogicManager(model, storage);
+    }
+
+    @Test
+    public void constructor_nullInput_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new LogicManager(null, null));
+        assertThrows(NullPointerException.class, () -> new LogicManager(model, null));
+        assertThrows(NullPointerException.class, () -> new LogicManager(null, storage));
     }
 
     @Test

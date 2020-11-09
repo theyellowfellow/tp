@@ -37,6 +37,6 @@ Given below are my contributions to the project.
     * Updated Implementation details of Appointment Management (Design Considerations) [\#297](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/297)
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#256](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/256), [\#299](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/299)
+  * PRs reviewed (with non-trivial review comments): [\#256](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/256), [\#299](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/299), [\#300](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/300)
   * Reported bugs and suggestions for other teams in the class (examples: [1](https://github.com/theyellowfellow/ped/issues/1), [2](https://github.com/theyellowfellow/ped/issues/9), [3](https://github.com/theyellowfellow/ped/issues/3))
 
