@@ -14,8 +14,8 @@ title: Baymax - Developer Guide
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.6. [Storage Component](#36-common-classes)<br>
 4. [Implementation](#4-implementation)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1 [List Managers](#41-list-managers)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-management-features)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Apointment Manager](#43-appointment-manager)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-managemer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Appointment Manager](#43-appointment-manager)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Calendar Feature](#44-calendar-feature)<br>
 5. [Documentation](#5-documentation)<br>
 6. [Testing](#6-testing)<br>
@@ -280,7 +280,7 @@ to unnecessary dependencies between data types.
 Following the Don't Repeat Yourself design principle will allow for more abstraction and less duplication in the code,
 which facilitates future extensions and reduce effort in maintenance and testing by reducing repeated code. 
 
-### **4.2. Patient Management Features**
+### **4.2. Patient Manager**
 
 (Contributed by Thuta Htun Wai)
 
@@ -398,6 +398,8 @@ Figure . Object diagram of `AppointmentManager`
 The `AppointmentManager` class contains a summary of all the "back-end" logic of appointment commands on the app's `UniqueList` of `Appointment`s. This follows the SRP, as everything related to the execution of appointment commands can be found here. This also forces the customising of code to fit exactly the purposes needed for appointment commands, even if the methods simply call a `UniqueList` method that fulfills the exact purpose.
 
 #### 4.3.2. Current Implementation
+
+The `appointment` package in the `Model` component contains the necessary information related to a patient. The current implementation of `AppointmentManager` is summarised
 
 Makes use of many methods from `UniqueList`, e.g. `add`, `setElement`, `remove`, `sort`.
 
