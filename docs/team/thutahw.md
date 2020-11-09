@@ -3,44 +3,58 @@ layout: page
 title: Thuta Htun Wai's Project Portfolio Page
 ---
 
-## Project: AddressBook Level 3
+## Project: Baymax
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Baymax is a desktop application used by the clinic receptionists to manage patient and appointment information. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 13 kLoC.
 
 Given below are my contributions to the project.
 
-* **New Feature**: Added the ability to undo/redo previous commands.
-  * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-  * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-  * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
+* **New Feature**: Added the basic patient information management features and the tests.
 
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+  * What it does:  These features allow the user to add, delete, edit, find and list all the patients in the system. 
+  * Justification: These features are the core of a typical clinic patient and appointment application as they alllow the user to perform basic functionalities such as adding and deleting patients.
+  * Highlights: These features are necessary in order to perform other features such as the appointment management features. 
+  It was challenging to add new fields such as `gender` for the patient as it required modifying a huge part of the original code.
+  * Credits: Adapted Address Book Level-3's person package for the patient model. 
+  
+* **New Feature**: Added the `listapptsof` feature (`listapptsof INDEX`). 
 
-* **Code contributed**: [RepoSense link]()
-
-* **Project management**:
-  * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+  * What it does: It allows the user to list all the appointments belonging to a specific patient by using his/her index in the patient list.
+  * Justification: This feature is important for a clinic receptionists to instantly view a specific patient's appointments so that he/she can find out when to schedule the next appointment.
+  * Highlights: This feature required coming up with a specific predicate to filter the patient list in order to put the right patients inside the displayed list.
+  * Credits: 
+  
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=&sort=groupTitle&sortWithin=title&since=2020-08-14&until=2020-11-09&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=true&tabType=authorship&tabAuthor=thutahw&tabRepo=AY2021S1-CS2103T-W12-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code)
 
 * **Enhancements to existing features**:
-  * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
 
-* **Documentation**:
-  * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
-  * Developer Guide:
-    * Added implementation details of the `delete` feature.
+  * Wrote additional tests for existing features to increase coverage (Pull requests [\#90](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/90/files), [\#97](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/97), 
+  [\#131](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/131), [\#170](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/170), 
+  [\#182](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/182), [\#190](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/190))
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
 
-* **Tools**:
-  * Integrated a third party library (Natty) to the project ([\#42]())
-  * Integrated a new Github plugin (CircleCI) to the team repo
+  * PRs reviewed (with non-trivial review comments): [\#111](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/111),
+   [\#271](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/271), [#299](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/299)
+    
+  * Tested our own app and reported the bugs found (examples: [1](https://github.com/AY2021S1-CS2103T-W12-3/tp/issues/155),
+   [2](https://github.com/AY2021S1-CS2103T-W12-3/tp/issues/178),
+   [3](https://github.com/AY2021S1-CS2103T-W12-3/tp/issues/179),
+   [4](https://github.com/AY2021S1-CS2103T-W12-3/tp/issues/180),
+   [5](https://github.com/AY2021S1-CS2103T-W12-3/tp/issues/181))  
 
-* _{you can add/remove categories in the list above}_
+  * Reported bugs and suggestions for other teams in the class (examples: [1](https://github.com/thutahw/ped/issues/1),
+   [2](https://github.com/thutahw/ped/issues/3), [3](https://github.com/thutahw/ped/issues/4))
+
+* **Documentation**:
+
+  * User Guide:
+    * Added the explanation sections under the Patient Features, and the Appointment Features.
+    * Added the screenshots for the features.
+    
+  * Developer Guide:
+    * Added implementation details of the `Patient Management Features` .
+    * Added the activity diagram and sequence diagram for the `FindPatientCommand`.
+    * Updated the Product Scope.
+
+

@@ -1,0 +1,25 @@
+@startuml
+!include style.puml
+skinparam Class {
+    BorderColor BACKGROUND_COLOR
+    FontColor BACKGROUND_COLOR
+    BackgroundColor STORAGE_COLOR_T2
+    StereotypeFontColor BACKGROUND_COLOR
+}
+skinparam ArrowColor STORAGE_COLOR_T2
+
+hide method
+hide attribute
+
+Interface PatientManagerStorage<<Interface>>
+Class JsonPatientManagerStorage
+Class JsonAdaptedPatient
+Class JsonSerializablePatientManager
+
+
+JsonPatientManagerStorage .up.|> PatientManagerStorage
+JsonPatientManagerStorage ..down.> JsonSerializablePatientManager
+JsonSerializablePatientManager --down->"*" JsonAdaptedPatient
+
+
+@enduml
