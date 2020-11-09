@@ -169,7 +169,9 @@ Figure 7. Delete Appointment Sequence Diagram
 This segment will explain the structure and responsibilities of the Model component.
 
 #### 3.4.1. Structure
-![Structure of the Model Component](images/ModelClassDiagram.png)<br>
+
+![Structure of the Model Component](images/ModelClassDiagram.png)
+
 Figure 8. Structure of the Model Component
 
 **API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-W12-3/tp/tree/master/src/main/java/team/baymax/model/Model.java)
@@ -202,7 +204,9 @@ The `Model` component,
 This segment will explain the structure and responsibilities of the Storage component.
 
 #### 3.5.1. Structure
-![Structure of the Storage Component](images/StorageClassDiagram.png)<br>
+
+![Structure of the Storage Component](images/StorageClassDiagram.png)
+
 Figure 9. Structure of the Storage Component
 
 **API** : [`Storage.java`](https://github.com/AY2021S1-CS2103T-W12-3/tp/tree/master/src/main/java/team/baymax/storage/Storage.java)
@@ -513,8 +517,12 @@ and more user-friendly.
 Below is an example of the sequence diagram when the user executes an AddAppointment command without specifying a date.
 The diagram illustrates how the CalendarManager is used to automatically set the date of the appointment.
 
-![AddAppointmentSequenceDiagram](images/AddAppointmentSequenceDiagram.png)
-<br>Figure 15. Execution of an AddAppointment command with the help of CalendarManager
+![AddAppointmentSequenceDiagram](images/AddAppointmentSequenceDiagram.png)<br>
+<br>Figure 15. Add Appointment Sequence Diagram involving the `CalendarManager`
+
+**Note:**
+
+1. The lifeline for the `AddAppointmentCommandParser` and `AddAppointmentCommand` should end at the destroy mark (X). However, due to a limitation of PlantUML, the lifeline reaches the end of the diagram.
 
 #### 4.4.2. Current Implementation
 The `CalendarManager` class in the `Model` component contains an `AppointmentCalendar` object, storing the currently set 
@@ -527,7 +535,7 @@ The following sequence diagram illustrates how the `Logic` component interacts w
 `Year` in the `AppointmentCalendar` managed by the `CalendarManager`.
 
 ![CalendarSequenceDiagram](images/CalendarSequenceDiagram.png)<br>
-Figure 16. Sequence Diagram for Switching to a Particular Year in the Calendar
+<br>Figure 16. Switch Year Sequence Diagram
 
 **Note:**
 

@@ -25,7 +25,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=jianhandev&sort=groupTitle&sortWithin=title&since=2020-08-14&until=2020-11-09&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=jianhandev&tabRepo=AY2021S1-CS2103T-W12-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.4` (4 releases) on GitHub
+  * Managed releases `v1.1` - `v1.4` (4 releases) on GitHub
 
 * **Enhancements to existing features**:
   * Updated the GUI color scheme (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/86))
@@ -37,4 +37,3 @@ My contributions to the User Guide and Developer Guide can be viewed below.
     * (https://github.com/AY2021S1-CS2103T-W12-3/tp/blob/master/docs/UserGuide.md)
   * Developer Guide:
     * (https://github.com/AY2021S1-CS2103T-W12-3/tp/blob/master/docs/DeveloperGuide.md)
-
