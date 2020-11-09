@@ -15,7 +15,7 @@ title: Baymax - Developer Guide
 4. [**Implementation**](#4-implementation)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1 [List Managers](#41-list-managers)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Patient Manager](#42-patient-managemer)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Appointment Manager](#43-appointment-manager)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3 [Appointment Manager](#43-appointment-managemer)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Calendar Feature](#44-calendar-feature)<br>
 5. [**Documentation**](#5-documentation)<br>
 6. [**Testing**](#6-testing)<br>
@@ -388,7 +388,7 @@ The following table shows the commands related to managing a patient's details.<
 * When the list of appointments increase in size, Option 1 performs better because Baymax involves a lot of "update/set"
 operations such as marking an appointment as done/missed and adding/editing an appointment.
 
-### **4.3 Appointment Management Features**
+### **4.3 Appointment Manager**
 (Contributed by Shi Hui Ling & Reuben Teng)
 
 Scheduling, viewing, and otherwise dealing with appointments is a key feature area for Baymax. 
@@ -405,13 +405,9 @@ These methods are used by the `AppointmentCommand` classes to execute their logi
 
 The *Object Diagram* below summarises the interactions between AppointmentManager and Appointments.
 
-<<<<<<< HEAD
-=======
 ![AppointmentManagerObjectDiagram](images/AppointmentObjectDiagram.png)<br>
 Figure 14. Object diagram of `AppointmentManager`
 
-
->>>>>>> 4d0459d0e9ea38a498a6365d99940f62edcbad91
 #### 4.3.1 Rationale
 
 The `AppointmentManager` class contains a summary of all the "back-end" logic of appointment commands on the app's 
