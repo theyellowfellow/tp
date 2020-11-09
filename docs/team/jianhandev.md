@@ -21,7 +21,7 @@ Given below are my contributions to the project.
 
 * **New Feature**: Dashboard for keeping track of appointments on the current day.
     * Justification: This feature allows the user to view all appointments on the current day without any additional effort. This improves user experience and makes the job of the receptionist much easier.
-
+ 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=jianhandev&sort=groupTitle&sortWithin=title&since=2020-08-14&until=2020-11-09&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=jianhandev&tabRepo=AY2021S1-CS2103T-W12-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
 
 * **Project management**:
