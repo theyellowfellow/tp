@@ -5,7 +5,7 @@ title: Reuben Teng's Project Portfolio Page
 
 ## Project: Baymax
 
-Baymax is a desktop patient management application used for managing patients and appointments in clinics. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 13 kLoC.
+Baymax is a desktop patient management application used for managing patients and appointments in clinics. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 15 kLoC.
 
 Given below are my contributions to the project.
 
