@@ -99,7 +99,7 @@ public class MarkAppointmentDoneCommand extends Command {
                 throw new CommandException(Messages.MESSAGE_APPOINTMENT_NOT_FOUND);
             }
         } else {
-            throw new CommandException(Messages.MESSAGE_APPOINTMENT_NOT_FOUND);
+            throw new CommandException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, MESSAGE_USAGE));
         }
 
         if (appointmentToEdit.getStatus().equals(AppointmentStatus.UPCOMING)) {

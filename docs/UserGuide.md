@@ -56,16 +56,15 @@ Welcome to Baymax! Are you a healthcare professional looking for a reliable app 
 appointments? You have come to the right place!
 
 Baymax is a Command Line Interface (CLI) focused desktop application that helps you to manage patient appointments using just
-the keyboard itself, no fiddling with the mouse needed! The main features include:
+the keyboard itself, no fiddling with the mouse needed. The main features include:
 
-1. Managing appointments - scheduling new appointments, changing appointments, cancelling appointments,
-   marking appointments as done etc.
-2. Managing patient information - phone number, special remarks etc. 
-3. Viewing appointments in a `schedule` view.
-4. A built-in calendar for greater convenience.
+1. Managing appointments
+2. Managing patient information 
+3. Calendar
 
-All of these can be done easily with just a few keystrokes! Baymax's distinguishing feature is our special built-in
-calendar view which can help patients make quick decisions on the ground! What are you waiting for? Head on to Section 2, “Quick Start”!
+With Baymax, you can manage appointments efficiently with our integrated Calendar tool. We have put a lot of effort into
+designing our User Interface so that it feels as intuitive to first-time users as it can be. You will be amazed by what 
+you can achieve with Baymax through a clean and simple User Interface. What are you waiting for? Head on to Section 2, “Quick Start”!
 
 --------------------------------------------------------------------------------
 
@@ -78,13 +77,19 @@ calendar view which can help patients make quick decisions on the ground! What a
 3. Copy the file to the folder you want to use as the _home folder_ for your Baymax application.
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds.
+   This is the dashboard.
+   
+   ![Ui](images/Dashboard.png)<br>
+   *Figure 2a1. Baymax Dashboard*
+
+5. At the top of the screen, type in your commands in the command box and press Enter to execute it.
+   Let us list all appointments. To do so, enter `listappts` into the command box. You should be brought to the appointment information page.
    Note how the app contains some sample data.
    
    ![Ui](images/Ui.png)<br>
-   *Figure 2a. Baymax Graphical User Interface*
-
-5. At the top of the screen, type in your commands in the command box and press Enter to execute it.
-   e.g. typing **`help`** and pressing Enter will open the help window.<br>
+      *Figure 2a2. Baymax Graphical User Interface*
+   
+   Tip: Typing **`help`** and pressing Enter will open up the help window, which allows you to learn more commands.<br>
 
 6. Refer to the [Features](#5-features) below for details of each command.
 
@@ -145,7 +150,7 @@ Most of the commands take the following format:
 
 * Words in `UPPER_CASE` are the parameters to be **supplied** by you.
 
-  E.g. `addpatient name/NAME`: can be used as `addpatient name/Alice Tan`.
+  E.g. `addpatient name/NAME`: can be used as `addpatient name/Alice Tan...`
 
 * When the command requires time in HH:MM format, it follows the **24 Hour** System. 
  
@@ -153,7 +158,7 @@ Most of the commands take the following format:
 
 * Items in square brackets are **optional**.
 
-  E.g. `name/NAME [remark/REMARK]`: can be used as `name/Alice Tan remark/No drug allergy` or as `name/Alice Tan`.
+  E.g. `name/NAME [r/REMARK]`: can be used as `name/Alice Tan r/No drug allergy` or as `name/Alice Tan`.
 
 * Items with `…`​ after them can be used **multiple** times including zero times.<br>
   
@@ -218,7 +223,7 @@ This feature allows you to manage patient information. You can:
 3. Delete a patient 
 4. Edit a patient's details
 5. Add a remark to a patient
-6. Find a patient by his name
+6. Find patients by name
 
 #### 5.1.1. Add a new patient: `addpatient`
 You can use this command to add a new patient who has not yet been registered.
@@ -234,7 +239,7 @@ NRIC          | The nric of the patient. It must <ins>start with either 'S', 'T'
 NAME          | The name of the patient. It must consist <ins>solely</ins> of alphanumerics (case-insensitive). E.g. Alice Tan, Alice1
 PHONE         | The hand phone number that the patient wishes to be contacted by and it must be at least 3 digits long. It must consist <ins>solely</ins> of numbers. E.g. 91234567
 GENDER        | The gender of the patient. In short, female is indicated by the letter ‘F’ and male is indicated by the letter ‘M’ (both case-insensitive). E.g M, m, F, f
-REMARK        | Any remarks about the patient. It can be any text -- alphanumerical, special characters etc. are allowed. E.g. Only available on Mon / Tues
+REMARK        | Any remarks about the patient E.g. Only available on Mon / Tues. It can be any text -- alphanumerical, special characters etc. are allowed. A remark can be blank.
 TAG           | The tag for the patient. It must only be <ins>alphanumerical</ins> and must not contain spaces or special characters. Can have multiple tags. E.g. Diabetic, Asthmatic
 
 **Example:**<br>
@@ -258,8 +263,8 @@ In the case where the command entered is invalid (e.g `NRIC` has 8 numbers in th
 
 **Note:**
 
-When the patient is added successfully, the main display only shows the newly added patient so that you do not need to scroll
-down all the way to the bottom of the patient list to ensure that the new patient is added. 
+When a patient is added successfully, the main display only shows the newly added patient so that you do not need to scroll
+through the list to ensure that the new patient is added. 
 If you wish to view the whole patient list again, you can use the `listpatients` command from [section 5.1.2](#512-list-all-patients-listpatients).    
     
 #### 5.1.2. List all patients: `listpatients`
@@ -281,9 +286,8 @@ the list of patients with all their information: name, nric, contact number, gen
     *Figure 5.1.2a. Listing all patients*
 
 #### 5.1.3. Delete a patient: `deletepatient`
-You can use this command to delete a patient’s profile by his or her `INDEX`. However, you will first need to use the `listpatients` command
+You can use this command to delete a patient’s profile by his or her `INDEX` in the displayed list. However, you will first need to use the `listpatients` command
 to get the patient's `INDEX`.
-This extra step helps you to confirm the profile to be deleted, and prevents accidental deletes.
 
 **Note:** 
 
@@ -320,8 +324,7 @@ In the case where the `INDEX` is invalid (E.g `deletepatient 11` is entered, but
 #### 5.1.4. Edit a patient's information: `editpatient`
 You can use this command to edit a patient’s profile information. You can edit any field of a patient in any order. 
 However, you will first need to use the `listpatients` command to find out the 
-patient’s `INDEX` within the displayed list. This extra step helps you to confirm the profile 
-to be edited, and prevents accidental edits. 
+patient’s `INDEX` within the displayed list.
 
 **Format:**<br>
 `editpatient INDEX <at least 1 patient information parameter>`
@@ -447,7 +450,7 @@ If you wish to view the whole patient list again, you can use the `listpatients`
 2. Each patient can only have one remark. Using this command when a patient already has a remark will
 **replace** the existing remark with the new one entered.
 
-3. Entering only `remark INDEX` will automatically **remove** the current remark of the patient at that `INDEX`.
+3. Entering only `remark INDEX` will **remove** the current remark of the patient at that `INDEX`.
 
 ----------------------------------------------------------------------------------
 
@@ -457,7 +460,7 @@ This feature allows you to manage the appointments of all patients. You can:
 
 1. Add a new appointment
 2. List all the appointments
-3. List all the appointments of a specific patient
+3. List all the appointments of a patient
 4. Cancel an appointment
 5. Edit an appointment's details
 6. Mark an appointment as done
@@ -478,19 +481,16 @@ Parameter Name | Description
 ---------------|------------
 INDEX     | The index of the patient in the most recently displayed list. It must be a <ins>positive</ins> integer.
 DATETIME       | The date followed by the time of the appointment. It must be in <ins>DD-MM-YYYY HH:MM</ins> format. E.g. 20-01-2020 15:00
-TIME           | The time of the appointment. It must be in <ins>HH:MM</ins> format. E.g. 15:00. The date will be referenced from the date set in the calendar (see Section 5.3).
+TIME           | The time of the appointment. It must be in <ins>HH:MM</ins> format. E.g. 15:00. The date will be inferred from the date set in the calendar (see Section 5.3).
 DESCRIPTION    | The description of the appointment. It can be <ins>any text</ins> -- alphanumerical, special characters etc. are allowed. E.g. Wrist fracture check-up #3
 TAG            | The tag related to the appointment. It must only be <ins>alphanumerical</ins> and must not contain spaces or special characters. Can have multiple tags. E.g. Xray
-NRIC           | The nric of the patient. It must <ins>start with either 'S', 'T', 'F' or 'G' (all case-insensitive) and end with an alphabet (case-insensitive)</ins> and contain 7 numbers in between them. E.g. S1234567A, s1234567a
-DURATION       | The <ins>integer</ins> duration of the appointment in minutes, not spanning more than <ins>one</ins> day and must <ins>not</ins> extend to the next day. <br> E.g. <br> 1. A new appointment at 23:58 can have maximum duration of 1 minute. <br> 2. An appointment at 00:00 can have a maximum duration of 1439 minutes.
+NRIC           | The nric of the patient. It must <ins>start with either 'S', 'T', 'F' or 'G' and end with an alphabet </ins> and contain 7 numbers in between E.g. S1234567A, s1234567a. This field is case-insensitive.
+DURATION       | The <ins>integer</ins> duration of the appointment in minutes, not spanning more than <ins>one</ins> day and must <ins>not</ins> extend the appointment to the next day.
 
 **Format:**<br>
 `addappt INDEX on/DATETIME dur/DURATION desc/DESCRIPTION [tag/TAG]`<br>
-
 `addappt nric/NRIC on/DATETIME dur/DURATION desc/DESCRIPTION [tag/TAG]`<br>
-
 `addappt INDEX at/TIME dur/DURATION desc/DESCRIPTION [tag/TAG]`<br>
-
 `addappt nric/NRIC at/TIME dur/DURATION desc/DESCRIPTION [tag/TAG]`<br>
 
 **Example:**<br>
@@ -507,14 +507,14 @@ If the command is valid (i.e. the user keyed in the valid fields):
 
 **Note:** 
 
-1. Either `INDEX` or `NRIC` should be provided. If both are provided, only the `INDEX` will be accepted.
-2. Either `DATETIME` or `TIME` should be provided. If both are provided, only the `DATETIME` will be accepted.
-3. Newly added appointments with `DATETIME` before the current `DATETIME` will be automatically marked as `done`. 
+1. Either `INDEX` or `NRIC` should be provided. If both are provided, the `INDEX` will be taken.
+2. Either `DATETIME` or `TIME` should be provided. If both are provided, the `DATETIME` will be taken.
+3. For your convenience, newly added appointments with `DATETIME` before the current date and time will be automatically marked as `done`. 
 
 #### 5.2.2. List all appointments of a patient: `listapptsof`
 You can use this command to list all the appointments belonging to a certain patient.
-However, you will first need to use the `listpatients` command to 
-find out the patient’s `INDEX`. 
+One quick way is to find patients by name using the `findpatient` command to 
+get the patient’s `INDEX`, and then execute this command with the index found to list out all appointments of that patient.
 
 **Format:**<br>
 `listapptsof INDEX`<br>
@@ -527,7 +527,7 @@ Parameter Name | Description
 ---------------|------------
 INDEX     | The index of the patient in the most recently displayed list. It must be a <ins>positive</ins> integer.
 NRIC           | The nric of the patient.
-NAME           | The name by which to search for the patient. It can be an incomplete part of the patient's name. E.g. Alice
+NAME           | The name by which to search for the patient. It must be the patient's full name. E.g. Alex Yeoh
 
 **Example:**<br>
 1. Type `listapptsof 1` into the command box.
@@ -543,10 +543,6 @@ NAME           | The name by which to search for the patient. It can be an incom
 #### 5.2.3. List all appointments: `listappts`
 
 You can use this command to list all the appointments in the system, which belong to any patient.
-
-**Note:**
-
-The appointments in the `listappts` view are **not** sorted by date or time. They appear in the same order as when the appointments are added.
 
 **Format:**<br>
 `listappts`
@@ -596,13 +592,13 @@ DURATION       | The <ins>integer</ins> duration of the appointment in minutes, 
 
 If the INDEX (i.e 10) is valid:
 1. A success message will be displayed as shown below.
-2. The `DATETIME` of the appointment at index 10 in the recent list will be edited.
+2. The `DATETIME` of the appointment at index 10 in the displayed list will be edited.
     
     ![editappt](images/beforeeditappt.png)<br>
     *Figure 5.2.4a. Before editing an appointment*
     
     ![editappt](images/aftereditappt.png)<br>
-    *Figure 5.2.4b. Editing an appointment*
+    *Figure 5.2.4b. After editing an appointment*
 
 **Note:**
 
@@ -623,33 +619,28 @@ or the `DATETIME` of the appointment with the `NAME` of the patient.
 Parameter Name | Description
 ---------------|------------
 INDEX          | The index of the target appointment in the most recently displayed list. It must be a <ins>positive</ins> integer.
-NAME           | The name by which to search for the patient. It can be an incomplete part of the patient's name. E.g. Alice
+NAME           | The name by which to search for the patient. It must be the patient's full name. E.g. Alex Yeoh
 DATETIME       | The date followed by the time of the appointment. It must be in <ins>DD-MM-YYYY HH:MM</ins> format. E.g. 20-01-2020 15:00
 
 **Example:**<br>
-Method 1:
-1. Type `cancel 1` into the command box. (Currently, the appointment at Index 1 is Chin's appointment).
-2. Press `Enter` on your keyboard.
-
-Method 2:
-1. Type `cancel on/12-10-2020 12:00 name/Jackson` into the command box.
+1. Type `cancel 1` into the command box.
 2. Press `Enter` on your keyboard.
 
 **Warning:**
  
-Method 2 is for convenience only. Use this method only if you are sure that there is only one patient with the name that you are going to enter, in order to prevent accidental deletes.
+For your convenience, we allow you to cancel an appointment using the datetime of the appointment and name of the patient. Use this method only if you are sure that there is only one patient with the name that you are going to enter, in order to prevent accidental deletes.
 
 **Outcome:**
 
 If the command is valid (i.e. the specified appointment exists):
-1. A success message will be displayed as shown below.
+1. A similar success message or outcome will be displayed depending on the first appointment in the list.
 2. The appointment specified will be removed.
     
     ![cancelappt](images/beforecancel.png)<br>
     *Figure 5.2.5a. Before cancelling an appointment*
     
     ![cancelappt](images/aftercancel.png)<br>
-    *Figure 5.2.5b. Cancelling an appointment*
+    *Figure 5.2.5b. After cancelling an appointment*
 
 #### 5.2.6. Mark an appointment as done: `done`
 You can use this command to mark an appointment within the system as done either by specifying `INDEX` of the appointment, or the `DATETIME` of the appointment with the `NAME` of the patient.
@@ -667,22 +658,17 @@ NAME           | The name by which to search for the patient. It can be an incom
 DATETIME       | The date followed by the time of the appointment. It must be in <ins>DD-MM-YYYY HH:MM</ins> format. E.g. 20-01-2020 15:00
 
 **Example:**<br>
-Method 1:
 1. Type `done 7` into the command box.
-2. Press `Enter` on your keyboard.
-
-Method 2:
-1. Type `done on/09-11-2020 13:15 name/Roger` into the command box.
 2. Press `Enter` on your keyboard.
 
 **Warning:**
  
-Method 2 is for convenience only. Use this method only if you are sure there is only one patient with the name that you are going to enter, in order to prevent accidental edits.
+For your convenience, we allow you to mark appointment as done using the datetime of appointment and name of patient. Use this method only if you are sure there is only one patient with the name that you are going to enter, in order to prevent accidental edits.
 
 **Outcome:**
 
 If the command is valid (i.e. the specified appointment exists):
-1. A success message will be displayed as shown below.
+1. A similar success message or outcome will be displayed depending on the first appointment in the list.
 2. The appointment specified will be marked as done.
     
     ![markapptdone](images/beforedone.png)<br>
@@ -714,21 +700,17 @@ DATETIME       | The date followed by the time of the appointment. It must be in
 
 **Example:**<br>
 Method 1:
-1. Type `missed 7` into the command box. (Currently, the appointment at Index 1 is Calvini's appointment).
-2. Press `Enter` on your keyboard.
-
-Method 2:
-1. Type `missed on/09-11-2020 13:15 name/Roger` into the command box.
+1. Type `missed 7` into the command box.
 2. Press `Enter` on your keyboard.
 
 **Warning:**
  
-Method 2 is for convenience only. Use this method only if you are sure that there is only one patient with the name that you are going to enter, in order to prevent accidental edits.
+For your convenience, we allow you to mark appointment as missed using the datetime of the appointment and the name of patient. Use this method only if you are sure that there is only one patient with the name that you are going to enter, in order to prevent accidental edits.
 
 **Outcome:**
 
 If the command is valid (i.e. the specified appointment exists):
-1. A success message will be displayed as shown below.
+1. A similar success message or outcome will be displayed depending on your list of appointments.
 2. The appointment specified will be marked as missed.
     
     ![missed](images/beforemissed.png)<br>
@@ -787,9 +769,8 @@ TAG_KEYWORD           | The keyword by which to search for the appointment. It c
 -------------------------------------------------------------------------------
 
 ### 5.3. Calendar 
-This feature allows you to view the availability status of each day in a month, as well as the appointment schedule
-for a period of time or within a particular day / week. The following subsections will guide you through the commands to
-set the calendar view to a particular year and month.
+Baymax Calendar allows you to see how many days are available in a month. Coupled with the schedule view, the Calendar allows you to see a list of appointments laid down on a timeline in chronological order.
+The following subsections will guide you through how to use the Calendar.
 
 **Note:**
 
@@ -797,8 +778,7 @@ The dates in the calendar view are **not** clickable.
 
 #### 5.3.1. Switch to a particular year: `year`
 You can use this command to switch to a particular year. The default is the current year. Suppose there are appointments
-scheduled one year in advance, you can use this function to switch to the following year. The year set by this command
-will affect the command we will discuss in Section 5.3.2 (Switching to a particular month).
+scheduled one year in advance, you can use this function to switch to the following year.
 
 **Format:**<br>
 `year YEAR`
@@ -807,7 +787,7 @@ will affect the command we will discuss in Section 5.3.2 (Switching to a particu
 
 Parameter Name | Description
 ---------------|------------
-YEAR          | The year you want to switch to. It must be a <ins>4-digit positive</ins> number and start from the year 2000. E.g. 2020
+YEAR          | The year you want to switch to. It must be a <ins>4-digit positive</ins> number from 1900 to 2100, inclusive.
 
 **Example:**<br>
 1. Type `year 2019` into the command box.
@@ -815,15 +795,15 @@ YEAR          | The year you want to switch to. It must be a <ins>4-digit positi
 
 **Outcome:**<br>
 
-1. Baymax will switch to the calendar tab.
-2. The year 2019 will be displayed on the top of the window together with the currently selected month.
+1. Baymax will switch to the Calendar tab.
+2. The year 2019 will be displayed on the top of the Calendar page together with the currently selected month.
 
     ![changeyear](images/year2019.png)<br>
     *Figure 5.3.1a Changing the year to 2019*
 
 #### 5.3.2. Switch to a particular month: `month`
-You can use this command to switch to a particular month based on the year you set in Section 5.3.1. The default is the
-current month. For example, if today is 3rd January 2020, then the calendar will display the year 2020 and the month
+You can use this command to switch to a particular month. The default is the current month. 
+For example, if today is 3rd January 2020, then the calendar will display the year 2020 and the month
 January by default.
 
 **Format:**<br>

@@ -18,6 +18,7 @@ import team.baymax.model.patient.Nric;
 import team.baymax.model.patient.Patient;
 import team.baymax.model.patient.PatientHasAppointmentPredicate;
 import team.baymax.model.util.TabId;
+import team.baymax.model.util.uniquelist.exceptions.ElementNotFoundException;
 
 /**
  * Lists all the appointments of the chosen patient to the user.
@@ -95,13 +96,21 @@ public class ListPatientAppointmentsCommand extends Command {
 
             patientChosen = lastShownList.get(targetIndex.getZeroBased());
         } else if (nric != null) {
-            PatientManager patientManager = (PatientManager) model.getPatientManager();
-            patientChosen = patientManager.getPatient(nric);
+            try {
+                PatientManager patientManager = (PatientManager) model.getPatientManager();
+                patientChosen = patientManager.getPatient(nric);
+            } catch (ElementNotFoundException e) {
+                throw new CommandException(Messages.MESSAGE_PATIENT_NOT_FOUND);
+            }
         } else if (name != null) {
-            PatientManager patientManager = (PatientManager) model.getPatientManager();
-            patientChosen = patientManager.getPatient(name);
+            try {
+                PatientManager patientManager = (PatientManager) model.getPatientManager();
+                patientChosen = patientManager.getPatient(name);
+            } catch (ElementNotFoundException e) {
+                throw new CommandException(Messages.MESSAGE_PATIENT_NOT_FOUND);
+            }
         } else {
-            throw new CommandException(Messages.MESSAGE_PATIENT_NOT_FOUND);
+            throw new CommandException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, MESSAGE_USAGE));
         }
 
         model.updateFilteredAppointmentList(new PatientHasAppointmentPredicate(patientChosen));

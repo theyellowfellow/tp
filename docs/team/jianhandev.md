@@ -3,44 +3,38 @@ layout: page
 title: Li Jianhan's Project Portfolio Page
 ---
 
-## Project: AddressBook Level 3
+## Project: Baymax
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Baymax is a desktop appointment book application that helps small clinics manage patient and appointment information. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 13 kLoC.
 
 Given below are my contributions to the project.
 
-* **New Feature**: Added the ability to undo/redo previous commands.
-  * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-  * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-  * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
+* **New Feature**: Appointment Calendar
+  * What it does: allows the user to visualise date and time, coupled with a schedule view which displays appointments chronologically on a timeline.
+  * Justification: This feature improves the user's experience as they can hop between different dates inside the Calendar view, and zoom into a particular day for all the appointments on that day using a single command.
+  * Highlights: This enhancement revolutionizes the way dates are handled in our CLI application. For example, with the use of the calendar, the user can add appointments to a day without having to enter the date itself since it has been captured by the Calendar. This shortens commands and quickens the process of appointment scheduling.
+  It required an in-depth analysis of design alternatives. The implementation too was challenging as it required the implementation of an entirely new Calendar Manager that is very different from the traditionally used List Managers.
 
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+* **New Feature**: Added an add appointment by patient NRIC command that allows the user to add appointments not just by index, but also patient's NRIC.
+    * Justification: This feature allows adding of appointments directly to a patient using a single line of command, without having to find the patient beforehand by listing out.
+    * Highlights: This enhancement required a re-design of the Parser logic to be able to differentiate between the different modes of add appointment operations. A similar approach is later adapted by other commands for greater flexibility.
 
-* **Code contributed**: [RepoSense link]()
+* **New Feature**: Dashboard for keeping track of appointments on the current day.
+    * Justification: This feature allows the user to view all appointments on the current day without any additional effort. This improves user experience and makes the job of the receptionist much easier.
+
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=jianhandev&sort=groupTitle&sortWithin=title&since=2020-08-14&until=2020-11-09&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=jianhandev&tabRepo=AY2021S1-CS2103T-W12-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other)
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+  * Managed releases `v1.3` - `v1.4` (4 releases) on GitHub
 
 * **Enhancements to existing features**:
-  * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
+  * Updated the GUI color scheme (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/86))
+  * Wrote additional tests for existing features to increase coverage (Pull requests [\#274](https://github.com/AY2021S1-CS2103T-W12-3/tp/pull/274))
 
-* **Documentation**:
+* **Documentation**:<br>
+My contributions to the User Guide and Developer Guide can be viewed below.
   * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
+    * (https://github.com/AY2021S1-CS2103T-W12-3/tp/blob/master/docs/UserGuide.md)
   * Developer Guide:
-    * Added implementation details of the `delete` feature.
+    * (https://github.com/AY2021S1-CS2103T-W12-3/tp/blob/master/docs/DeveloperGuide.md)
 
-* **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
-
-* **Tools**:
-  * Integrated a third party library (Natty) to the project ([\#42]())
-  * Integrated a new Github plugin (CircleCI) to the team repo
-
-* _{you can add/remove categories in the list above}_

@@ -10,6 +10,9 @@ skinparam ArrowColor MODEL_COLOR_T3
 
 Class HiddenOutside #FFFFFF
 
+hide method
+hide attribute
+
 package Model <<Rectangle>> {
 Interface ReadOnlyListManager<<Interface>>
 Interface Model<<Interface>>

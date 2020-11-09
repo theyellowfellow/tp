@@ -20,10 +20,10 @@ import team.baymax.model.util.uniquelist.UniqueListElement;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Appointment implements UniqueListElement {
+    private final Boolean isMissed;
     private final Patient patient;
     private final DateTime dateTime;
     private final Duration duration;
-    private final Boolean isMissed;
     private final Set<Tag> tags;
     private final Description description;
 

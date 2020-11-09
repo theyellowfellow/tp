@@ -1,7 +1,12 @@
 package team.baymax.logic.parser.patient;
 
+import static java.util.Objects.requireNonNull;
+import static team.baymax.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import team.baymax.commons.core.index.Index;
 import team.baymax.logic.commands.patient.DeletePatientCommand;
+import team.baymax.logic.parser.ArgumentMultimap;
+import team.baymax.logic.parser.ArgumentTokenizer;
 import team.baymax.logic.parser.Parser;
 import team.baymax.logic.parser.ParserUtil;
 import team.baymax.logic.parser.exceptions.ParseException;
@@ -17,6 +22,14 @@ public class DeletePatientCommandParser implements Parser<DeletePatientCommand> 
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeletePatientCommand parse(String args) throws ParseException {
+        requireNonNull(args);
+
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args);
+        if (argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    DeletePatientCommand.MESSAGE_USAGE));
+        }
+
         Index index = ParserUtil.parseIndex(args);
         return new DeletePatientCommand(index);
     }

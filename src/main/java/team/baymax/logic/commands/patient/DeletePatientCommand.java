@@ -30,7 +30,12 @@ public class DeletePatientCommand extends Command {
 
     private final Index targetIndex;
 
+    /**
+     * Creates a DeletePatientCommand to delete the specified {@code Patient} at the {@code targetIndex}
+     * @param targetIndex  index of the Patient to delete in the current filtered list of patients
+     */
     public DeletePatientCommand(Index targetIndex) {
+        requireNonNull(targetIndex);
         this.targetIndex = targetIndex;
     }
 
@@ -38,8 +43,6 @@ public class DeletePatientCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Patient> lastShownList = model.getFilteredPatientList();
-
-        assert targetIndex != null;
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PATIENT_DISPLAYED_INDEX);

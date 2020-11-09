@@ -16,13 +16,16 @@ class PatientManager {
 + hasPatient(nric : Nric) : boolean
 + getPatient(name : Name) : Patient
 + getPatient(nric : Nric) : Patient
++ sortPatientList(cmp: Comparator) :
 }
 
 class UniqueList {
 - internalList : ObservableList
 - internalUnmodifiableList : ObservableList
 + contains(toCheck : UniqueListElement) : boolean
++ contains(pred : Predicate) : boolean
 + add(toAdd : UniqueListElement)
++ getByPredicate(pred : Predicate) : UniqueListElement
 + sort(cmp : Comparator)
 + setElement(target : UniqueListElement, edited : UniqueListElement)
 + remove(toRemove : UniqueListElement)
@@ -43,12 +46,6 @@ Class Patient {
 - gender : Gender
 - remark : Remark
 - tags : Set
-+ getNric() : Nric
-+ getName() : Name
-+ getPhone() : Phone
-+ getGender() : Gender
-+ getRemark() : Remark
-+ getTags() : Set
 }
 
 ReadOnlyListManager <|.. PatientManager

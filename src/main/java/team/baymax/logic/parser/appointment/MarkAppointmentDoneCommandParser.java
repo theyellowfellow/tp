@@ -39,7 +39,13 @@ public class MarkAppointmentDoneCommandParser implements Parser<MarkAppointmentD
             }
             return new MarkAppointmentDoneCommand(dateTime, name);
         } else {
-            Index index = ParserUtil.parseIndex(args);
+            Index index;
+            try {
+                index = ParserUtil.parseIndex(args);
+            } catch (ParseException pe) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, MarkAppointmentDoneCommand.MESSAGE_USAGE), pe);
+            }
             return new MarkAppointmentDoneCommand(index);
         }
     }
